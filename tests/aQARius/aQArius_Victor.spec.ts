@@ -53,8 +53,6 @@ test("Verificar que no deja registrar un certificado con un ID de un digito", as
     .waitFor({ state: "visible", timeout: 60000 });
   await page.getByRole("button", { name: "Mi perfil Fixer" }).click();
   await page.getByRole("button", { name: "Mi perfil Fixer" }).click();
-  await page.getByRole("button", { name: "Mi perfil Fixer" }).click();
-  await page.getByRole("button", { name: "Mi perfil Fixer" }).click();
   await page
     .getByRole("button", { name: "+ Añadir posición" })
     .waitFor({ state: "visible", timeout: 60000 });
@@ -83,10 +81,11 @@ test('Verificar que el boton de Cancelar edicion limpia el formulario de edicion
   await page.getByRole('textbox', { name: 'Correo electrónico' }).click();
   await page.getByRole('textbox', { name: 'Correo electrónico' }).fill('aquariu.s@gmail.com');
   await page.getByRole('textbox', { name: 'Contraseña' }).click();
-  await page.getByRole('textbox', { name: 'Contraseña' }).click();
   await page.getByRole('textbox', { name: 'Contraseña' }).fill('Vico123@');
   await page.getByRole('button', { name: 'Iniciar sesión' }).click();
-  await page.getByRole('button', { name: 'Mi perfil Fixer' }).click();
+  await page
+    .getByRole('button', { name: 'Mi perfil Fixer' })
+    .waitFor({ state: "visible", timeout: 60000 });
   await page.getByRole('button', { name: 'Mi perfil Fixer' }).click();
   await page.getByRole('button', { name: 'Mi perfil Fixer' }).click();
   await page.getByRole('button', { name: '+ Añadir certificación' }).click();
