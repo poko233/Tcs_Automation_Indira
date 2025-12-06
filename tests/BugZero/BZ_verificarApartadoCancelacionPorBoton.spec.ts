@@ -1,0 +1,8 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://servineo-front-liard.vercel.app/worker');
+  await page.getByRole('link', { name: 'Cancelar citas' }).click();
+  await page.getByRole('button', { name: 'Cancelar Varias Citas' }).click();
+  await expect(page.getByText('Puedes seleccionar varios días para cancelar todas las citas programadas.')).toBeVisible();
+});
